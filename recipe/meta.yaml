@@ -11,28 +11,32 @@ source:
   sha256: 2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   host:
     - python
+    - pip
     - setuptools
-
+    - wheel
   run:
     - python
-    - typing  # [py<35]
+    - typing >=3.5.3  # [py<35]
 
 test:
   imports:
     - mypy_extensions
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: http://www.mypy-lang.org/
   license: MIT
   license_family: MIT
-  # https://github.com/python/mypy/issues/4247
-  # license_file: ''
+  license_file: LICENSE
   summary: Experimental type system extensions for programs checked with the mypy typechecker.
   description: |
       The 'mypy_extensions' module defines experimental extensions to the
@@ -43,3 +47,4 @@ about:
 extra:
   recipe-maintainers:
     - nehaljwani
+    - skupr-anaconda
