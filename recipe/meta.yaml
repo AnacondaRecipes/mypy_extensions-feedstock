@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mypy_extensions-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mypy_extensions-{{ version }}.tar.gz
   sha256: 75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782
 
 build:
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -37,8 +37,8 @@ about:
   license_file: LICENSE
   summary: Extensions for mypy
   description: |
-      The 'mypy_extensions' module defines experimental extensions to the
-      standard 'typing' module that are supported by the mypy typechecker.
+    The 'mypy_extensions' module defines experimental extensions to the
+    standard 'typing' module that are supported by the mypy typechecker.
   doc_url: https://mypy.readthedocs.io
   dev_url: https://github.com/python/mypy_extensions
 
