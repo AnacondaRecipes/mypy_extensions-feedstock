@@ -1,13 +1,13 @@
 {% set name = "mypy_extensions" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mypy_extensions-{{ version }}.tar.gz
-  sha256: 75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mypy_extensions-{{ version }}.tar.gz
+  sha256: 52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558
 
 build:
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
@@ -17,8 +17,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - flit-core >=3.11,<4
   run:
     - python
 
